@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/NutriSimple.png">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -38,19 +39,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="hidden md:block">
-                        <div class="ml-4 flex items-center md:ml-6">
-                            <a href="#" class="text-stone-600 hover:text-teal-600 font-medium text-sm mr-4">Login</a>
-                            <a href="#" class="bg-teal-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-teal-700 transition duration-300">Daftar Gratis</a>
-                        </div>
-                    </div> -->
                     <div class="-mr-2 flex md:hidden">
-                        <button id="mobile-menu-button" type="button" class="bg-stone-100 inline-flex items-center justify-center p-2 rounded-md text-stone-500 hover:text-teal-600 hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-stone-100 focus:ring-teal-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <button id="mobile-menu-button" type="button" class="bg-stone-100 inline-flex items-center justify-center p-2 rounded-md text-stone-500 hover:text-teal-600 hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-stone-100 focus:ring-teal-500">
                             <span class="sr-only">Buka menu</span>
-                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
-                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -63,19 +58,12 @@
                     <a href="#kalkulator" class="nav-link-mobile text-stone-600 hover:bg-teal-50 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Kalkulator</a>
                     <a href="#dashboard" class="nav-link-mobile text-stone-600 hover:bg-teal-50 hover:text-teal-600 block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
                 </div>
-                 <div class="pt-4 pb-3 border-t border-stone-200">
-                    <div class="flex items-center px-5">
-                       <a href="#" class="w-full text-center text-stone-600 hover:text-teal-600 font-medium text-sm py-2 rounded-md hover:bg-stone-100">Login</a>
-                    </div>
-                     <div class="mt-3 px-2 space-y-1">
-                        <a href="#" class="block w-full text-center bg-teal-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-teal-700">Daftar Gratis</a>
-                    </div>
-                </div>
             </div>
         </header>
 
         <main class="flex-grow">
             
+            <!-- BERANDA SECTION -->
             <section id="beranda" class="section">
                 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
                     <div class="text-center">
@@ -92,11 +80,6 @@
                                     Coba Kalkulator Gratis
                                 </a>
                             </div>
-                            <!-- <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-600 bg-white hover:bg-stone-50 md:py-4 md:text-lg md:px-10">
-                                    Daftar & Simpan Progres
-                                </a>
-                            </div> -->
                         </div>
                         <p class="mt-3 text-sm text-stone-500">Gratis, cepat, dan tanpa komitmen.</p>
                     </div>
@@ -126,6 +109,7 @@
                 </div>
             </section>
 
+            <!-- KALKULATOR SECTION -->
             <section id="kalkulator" class="section">
                  <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
                      <div class="text-center">
@@ -171,6 +155,23 @@
                                     <option value="1.9">Sangat Aktif (Pekerjaan fisik berat/atlet)</option>
                                 </select>
                             </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-stone-700">Tujuan</label>
+                                <div class="mt-1 flex flex-wrap gap-4">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="goal" value="maintain" class="form-radio h-4 w-4 text-teal-600 border-stone-300 focus:ring-teal-500" checked>
+                                        <span class="ml-2 text-stone-700">Menjaga berat badan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="goal" value="lose" class="form-radio h-4 w-4 text-teal-600 border-stone-300 focus:ring-teal-500">
+                                        <span class="ml-2 text-stone-700">Menurunkan berat badan</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="goal" value="gain" class="form-radio h-4 w-4 text-teal-600 border-stone-300 focus:ring-teal-500">
+                                        <span class="ml-2 text-stone-700">Menaikkan berat badan</span>
+                                    </label>
+                                </div>
+                            </div>
                             <div class="md:col-span-2 text-center">
                                 <button type="submit" class="w-full md:w-auto inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-3 px-12 text-base font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 transition-transform transform hover:scale-105">
                                     🚀 Hitung Kebutuhan Saya
@@ -179,6 +180,7 @@
                         </form>
                     </div>
 
+                    <!-- Results Section -->
                     <div id="calculator-results" class="mt-12 hidden">
                         <div class="bg-white rounded-xl shadow-lg p-8">
                             <h3 class="text-2xl font-bold text-center text-stone-900">Hasil Perhitungan Anda</h3>
@@ -190,52 +192,109 @@
                                     <p class="mt-2 text-xs text-stone-400">Disclaimer: BMI adalah indikator awal.</p>
                                 </div>
                                 <div class="bg-stone-50 p-6 rounded-lg">
-                                    <h4 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Kalori Menjaga Berat Badan</h4>
-                                    <p class="mt-1 text-4xl font-extrabold text-teal-600"><span id="tdee-result"></span> <span class="text-2xl font-medium text-stone-600">kkal/hari</span></p>
+                                    <h4 class="text-sm font-medium text-stone-500 uppercase tracking-wider">Target Kalori Berdasarkan Tujuan</h4>
+                                    <p class="mt-1 text-4xl font-extrabold text-teal-600"><span id="target-calories"></span> <span class="text-2xl font-medium text-stone-600">kkal/hari</span></p>
+                                    <p id="goal-description" class="mt-1 text-sm text-stone-600"></p>
                                 </div>
                             </div>
                             <div class="mt-8">
-                                <h4 class="text-lg font-medium text-center text-stone-800">Target yang Direkomendasikan</h4>
-                                <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <h4 class="text-lg font-medium text-center text-stone-800">Rekomendasi Berdasarkan TDEE</h4>
+                                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                                      <div class="border border-stone-200 rounded-lg p-4 text-center">
-                                        <p class="font-medium text-stone-700">Untuk Turun Berat Badan (Defisit Ringan)</p>
-                                        <p class="text-2xl font-bold text-blue-600 mt-1" id="tdee-loss"></p>
+                                        <p class="font-medium text-stone-700">Menjaga Berat Badan</p>
+                                        <p class="text-xl font-bold text-green-600 mt-1" id="tdee-maintain"></p>
+                                    </div>
+                                     <div class="border border-stone-200 rounded-lg p-4 text-center">
+                                        <p class="font-medium text-stone-700">Menurunkan (Defisit Ringan)</p>
+                                        <p class="text-xl font-bold text-blue-600 mt-1" id="tdee-loss"></p>
                                     </div>
                                     <div class="border border-stone-200 rounded-lg p-4 text-center">
-                                        <p class="font-medium text-stone-700">Untuk Naik Berat Badan (Surplus Ringan)</p>
-                                        <p class="text-2xl font-bold text-orange-500 mt-1" id="tdee-gain"></p>
+                                        <p class="font-medium text-stone-700">Menaikkan (Surplus Ringan)</p>
+                                        <p class="text-xl font-bold text-orange-500 mt-1" id="tdee-gain"></p>
                                     </div>
                                 </div>
                             </div>
-                             <div class="mt-8 text-center bg-teal-50 p-4 rounded-lg">
-                                <p class="text-teal-800">Buat akun gratis untuk menyimpan profil dan mulai melacak makananmu hari ini!</p>
-                                <a href="#" class="mt-2 inline-block bg-teal-600 text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-teal-700 transition duration-300">
-                                    Daftar & Mulai Catat Makanan →
-                                </a>
+                             <div class="mt-8 text-center">
+                                <button id="save-profile-btn" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-200">
+                                    💾 Simpan Profil & Gunakan di Dashboard
+                                </button>
+                                <p class="mt-2 text-sm text-stone-500">Data akan tersimpan selama session browser ini aktif</p>
                             </div>
                         </div>
                     </div>
                  </div>
             </section>
             
+            <!-- DASHBOARD SECTION -->
             <section id="dashboard" class="section">
                 <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
                     <div class="text-center">
-                        <h2 class="text-3xl font-extrabold text-stone-900 sm:text-4xl">Dashboard Hari Ini, Budi</h2>
+                        <h2 class="text-3xl font-extrabold text-stone-900 sm:text-4xl">Dashboard Hari Ini</h2>
                         <p id="current-date" class="mt-2 text-lg text-stone-500"></p>
                     </div>
 
-                    <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Warning for no profile -->
+                    <div id="no-profile-warning" class="mt-8 bg-amber-50 border border-amber-200 rounded-lg p-6 text-center">
+                        <div class="flex items-center justify-center w-12 h-12 mx-auto bg-amber-100 rounded-full">
+                            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.96-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-amber-800">Belum Ada Profil Nutrisi</h3>
+                        <p class="mt-2 text-amber-700">Silakan hitung kebutuhan kalori Anda terlebih dahulu di halaman Kalkulator untuk mendapatkan rekomendasi yang akurat.</p>
+                        <a href="#kalkulator" class="nav-link mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-amber-600 hover:bg-amber-700">
+                            Hitung Kebutuhan Kalori →
+                        </a>
+                    </div>
+
+                    <!-- Main Dashboard Content -->
+                    <div id="dashboard-content" class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div class="lg:col-span-2">
                             <div class="bg-white p-6 rounded-xl shadow-lg">
                                 <h3 class="text-lg font-medium text-stone-900">Pencatat Makanan</h3>
-                                <form id="food-form" class="mt-4 flex flex-col sm:flex-row gap-2">
-                                    <input type="text" id="food-name" placeholder="Cari makanan.. (misal: Nasi Goreng)" class="flex-grow block w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
-                                    <input type="number" id="food-calories" placeholder="Kalori" class="w-full sm:w-24 block rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
-                                    <button type="submit" class="w-full sm:w-auto inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">+ Tambah</button>
+                                <form id="food-form" class="mt-4 space-y-3">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div>
+                                            <label class="block text-sm font-medium text-stone-700 mb-1">Pilih Makanan</label>
+                                            <select id="food-select" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
+                                                <option value="">-- Pilih Makanan --</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-stone-700 mb-1">Berat (gram)</label>
+                                            <input type="number" id="food-weight" placeholder="100" min="1" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Nutrition Info Preview -->
+                                    <div id="nutrition-preview" class="hidden bg-teal-50 p-3 rounded-lg">
+                                        <h4 class="text-sm font-medium text-teal-800 mb-2">Informasi Nutrisi (per <span id="preview-weight">100</span>g):</h4>
+                                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
+                                            <div class="text-center">
+                                                <p class="font-semibold text-teal-600" id="preview-calories">0</p>
+                                                <p class="text-teal-700">Kalori</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <p class="font-semibold text-blue-600" id="preview-protein">0g</p>
+                                                <p class="text-blue-700">Protein</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <p class="font-semibold text-orange-600" id="preview-carbs">0g</p>
+                                                <p class="text-orange-700">Karbo</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <p class="font-semibold text-red-600" id="preview-fat">0g</p>
+                                                <p class="text-red-700">Lemak</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
+                                        + Tambah ke Diary
+                                    </button>
                                 </form>
                                 <div class="mt-6">
-                                    <h4 class="text-md font-medium text-stone-800">Daftar Makanan Hari Ini</h4>
+                                    <h4 class="text-md font-medium text-stone-800">Diary Makanan Hari Ini</h4>
                                     <ul id="food-list" class="mt-2 space-y-2"></ul>
                                     <p id="empty-log-message" class="text-sm text-stone-400 mt-4 text-center">Belum ada makanan yang dicatat hari ini.</p>
                                 </div>
@@ -249,27 +308,85 @@
                                     <canvas id="calorie-chart"></canvas>
                                 </div>
                                 <div class="text-4xl font-bold text-stone-800">
-                                    <span id="calories-consumed">0</span> / <span id="calories-total">1850</span>
+                                    <span id="calories-consumed">0</span> / <span id="calories-total">2000</span>
                                 </div>
                                 <p class="text-stone-500">kkal</p>
+                                <div id="calorie-status" class="mt-2 text-sm"></div>
+                                
+                                <!-- Makronutrien Summary -->
+                                <div class="mt-6 pt-4 border-t border-stone-200">
+                                    <h4 class="text-sm font-medium text-stone-700 mb-3">Makronutrien Hari Ini</h4>
+                                    <div class="grid grid-cols-3 gap-3 text-xs">
+                                        <div class="bg-blue-50 p-2 rounded">
+                                            <p class="font-semibold text-blue-600" id="total-protein">0g</p>
+                                            <p class="text-blue-700">Protein</p>
+                                        </div>
+                                        <div class="bg-orange-50 p-2 rounded">
+                                            <p class="font-semibold text-orange-600" id="total-carbs">0g</p>
+                                            <p class="text-orange-700">Karbo</p>
+                                        </div>
+                                        <div class="bg-red-50 p-2 rounded">
+                                            <p class="font-semibold text-red-600" id="total-fat">0g</p>
+                                            <p class="text-red-700">Lemak</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="bg-white p-6 rounded-xl shadow-lg">
-                                <h3 class="text-lg font-medium text-stone-900">Profil Nutrisimu</h3>
+                                <div class="flex items-center justify-between">
+                                    <h3 class="text-lg font-medium text-stone-900">Profil Nutrisimu</h3>
+                                    <button id="edit-profile-btn" class="text-teal-600 hover:text-teal-800 text-sm font-medium">✏ Edit</button>
+                                </div>
                                 <ul class="mt-4 space-y-2 text-sm text-stone-600">
-                                    <li class="flex justify-between"><span>Berat Badan:</span> <span class="font-medium text-stone-800">65 kg</span></li>
-                                    <li class="flex justify-between"><span>Tinggi Badan:</span> <span class="font-medium text-stone-800">170 cm</span></li>
-                                    <li class="flex justify-between"><span>Target Kalori:</span> <span class="font-medium text-stone-800">1850 kkal</span></li>
+                                    <li class="flex justify-between"><span>Berat Badan:</span> <span id="profile-weight" class="font-medium text-stone-800">-</span></li>
+                                    <li class="flex justify-between"><span>Tinggi Badan:</span> <span id="profile-height" class="font-medium text-stone-800">-</span></li>
+                                    <li class="flex justify-between"><span>BMI:</span> <span id="profile-bmi" class="font-medium text-stone-800">-</span></li>
+                                    <li class="flex justify-between"><span>Target Kalori:</span> <span id="profile-target" class="font-medium text-stone-800">-</span></li>
+                                    <li class="flex justify-between"><span>Tujuan:</span> <span id="profile-goal" class="font-medium text-stone-800">-</span></li>
                                 </ul>
-                                <button class="mt-4 w-full text-center text-sm font-medium text-teal-600 hover:text-teal-800">✏ Edit Profil & Target</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Edit Profile Modal -->
+            <div id="edit-profile-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                <div class="bg-white p-6 rounded-lg w-80 max-w-md mx-4">
+                    <h3 class="text-lg font-bold text-stone-900">Edit Profil Nutrisi</h3>
+                    <form id="edit-profile-form" class="mt-4 space-y-3">
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700">Berat Badan (kg)</label>
+                            <input type="number" id="edit-weight" class="mt-1 w-full border border-stone-300 rounded-md px-3 py-2 focus:border-teal-500 focus:ring-teal-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700">Tinggi Badan (cm)</label>
+                            <input type="number" id="edit-height" class="mt-1 w-full border border-stone-300 rounded-md px-3 py-2 focus:border-teal-500 focus:ring-teal-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700">Target Kalori (kkal/hari)</label>
+                            <input type="number" id="edit-calorie" class="mt-1 w-full border border-stone-300 rounded-md px-3 py-2 focus:border-teal-500 focus:ring-teal-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-stone-700">Tujuan</label>
+                            <select id="edit-goal" class="mt-1 w-full border border-stone-300 rounded-md px-3 py-2 focus:border-teal-500 focus:ring-teal-500">
+                                <option value="maintain">Menjaga berat badan</option>
+                                <option value="lose">Menurunkan berat badan</option>
+                                <option value="gain">Menaikkan berat badan</option>
+                            </select>
+                        </div>
+                        <div class="flex justify-end space-x-2 mt-6">
+                            <button type="button" id="close-edit" class="px-4 py-2 bg-stone-200 text-stone-700 rounded-md hover:bg-stone-300">Batal</button>
+                            <button type="submit" class="px-4 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </main>
         
+        <!-- FOOTER -->
         <footer class="bg-white border-t border-stone-200">
              <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
                  <div class="flex justify-center space-x-6">
@@ -284,7 +401,83 @@
     </div>
 
     <script>
+        // Database makanan dengan makronutrien (per 100g)
+        const foodDatabase = {
+            // === MAKANAN POKOK ===
+            "Nasi Putih": { calories: 130, protein: 2.7, carbs: 28, fat: 0.3, category: "Makanan Pokok" },
+            "Nasi Merah": { calories: 111, protein: 2.3, carbs: 22, fat: 0.9, category: "Makanan Pokok" },
+            "Nasi Goreng": { calories: 163, protein: 4.2, carbs: 20, fat: 7.5, category: "Makanan Pokok" },
+            "Mie Ayam": { calories: 142, protein: 5.8, carbs: 18, fat: 5.2, category: "Makanan Pokok" },
+            "Mie Goreng": { calories: 188, protein: 6.5, carbs: 27, fat: 6.8, category: "Makanan Pokok" },
+            "Roti Tawar Putih": { calories: 265, protein: 9, carbs: 49, fat: 3.2, category: "Makanan Pokok" },
+            "Roti Gandum": { calories: 247, protein: 13, carbs: 41, fat: 4.2, category: "Makanan Pokok" },
+            "Kentang Rebus": { calories: 87, protein: 1.9, carbs: 20, fat: 0.1, category: "Makanan Pokok" },
+            
+            // === LAUK PAUK ===
+            "Ayam Goreng": { calories: 250, protein: 25, carbs: 0, fat: 16, category: "Lauk Pauk" },
+            "Ayam Bakar": { calories: 189, protein: 29, carbs: 0, fat: 7.4, category: "Lauk Pauk" },
+            "Rendang Daging": { calories: 193, protein: 22, carbs: 3.8, fat: 10, category: "Lauk Pauk" },
+            "Ikan Bakar": { calories: 180, protein: 25, carbs: 0, fat: 8, category: "Lauk Pauk" },
+            "Ikan Goreng": { calories: 204, protein: 22, carbs: 0, fat: 12, category: "Lauk Pauk" },
+            "Telur Dadar": { calories: 154, protein: 11, carbs: 0.6, fat: 12, category: "Lauk Pauk" },
+            "Telur Rebus": { calories: 155, protein: 13, carbs: 1.1, fat: 11, category: "Lauk Pauk" },
+            "Tahu Goreng": { calories: 271, protein: 17, carbs: 10, fat: 17, category: "Lauk Pauk" },
+            "Tempe Goreng": { calories: 193, protein: 20, carbs: 9, fat: 8, category: "Lauk Pauk" },
+            "Sate Ayam (5 tusuk)": { calories: 165, protein: 18, carbs: 3, fat: 8.5, category: "Lauk Pauk" },
+            
+            // === SAYURAN ===
+            "Gado-gado": { calories: 95, protein: 4.5, carbs: 8, fat: 5.2, category: "Sayuran" },
+            "Sayur Asem": { calories: 35, protein: 2, carbs: 7, fat: 0.2, category: "Sayuran" },
+            "Cap Cay": { calories: 45, protein: 3, carbs: 6, fat: 1.5, category: "Sayuran" },
+            "Tumis Kangkung": { calories: 29, protein: 2.9, carbs: 3.1, fat: 0.7, category: "Sayuran" },
+            "Sayur Sop": { calories: 25, protein: 1.8, carbs: 4.5, fat: 0.5, category: "Sayuran" },
+            "Lalapan": { calories: 23, protein: 1.2, carbs: 4.8, fat: 0.2, category: "Sayuran" },
+            
+            // === BUAH-BUAHAN ===
+            "Pisang": { calories: 89, protein: 1.1, carbs: 23, fat: 0.3, category: "Buah" },
+            "Apel": { calories: 52, protein: 0.3, carbs: 14, fat: 0.2, category: "Buah" },
+            "Jeruk": { calories: 47, protein: 0.9, carbs: 12, fat: 0.1, category: "Buah" },
+            "Mangga": { calories: 60, protein: 0.8, carbs: 15, fat: 0.4, category: "Buah" },
+            "Pepaya": { calories: 43, protein: 0.5, carbs: 11, fat: 0.3, category: "Buah" },
+            "Semangka": { calories: 30, protein: 0.6, carbs: 8, fat: 0.2, category: "Buah" },
+            
+            // === MAKANAN INTERNASIONAL ===
+            "Pizza Margherita": { calories: 266, protein: 11, carbs: 33, fat: 10, category: "Internasional" },
+            "Burger Beef": { calories: 295, protein: 17, carbs: 22, fat: 16, category: "Internasional" },
+            "Pasta Bolognese": { calories: 163, protein: 7.8, carbs: 20, fat: 6.2, category: "Internasional" },
+            "Fried Rice": { calories: 163, protein: 4.2, carbs: 20, fat: 7.5, category: "Internasional" },
+            "Chicken Steak": { calories: 220, protein: 26, carbs: 2, fat: 11, category: "Internasional" },
+            "Sandwich": { calories: 250, protein: 12, carbs: 30, fat: 10, category: "Internasional" },
+            "Caesar Salad": { calories: 87, protein: 6, carbs: 4, fat: 6, category: "Internasional" },
+            
+            // === MINUMAN ===
+            "Es Teh Manis": { calories: 35, protein: 0, carbs: 9, fat: 0, category: "Minuman" },
+            "Kopi Hitam": { calories: 2, protein: 0.3, carbs: 0, fat: 0, category: "Minuman" },
+            "Kopi Susu": { calories: 42, protein: 2.2, carbs: 5, fat: 1.7, category: "Minuman" },
+            "Jus Jeruk": { calories: 45, protein: 0.7, carbs: 10, fat: 0.2, category: "Minuman" },
+            "Susu UHT": { calories: 61, protein: 3.2, carbs: 4.5, fat: 3.5, category: "Minuman" },
+            "Air Mineral": { calories: 0, protein: 0, carbs: 0, fat: 0, category: "Minuman" },
+            
+            // === SNACK & DESSERT ===
+            "Keripik Singkong": { calories: 544, protein: 2.4, carbs: 55, fat: 35, category: "Snack" },
+            "Biskuit Marie": { calories: 458, protein: 7.5, carbs: 77, fat: 13, category: "Snack" },
+            "Es Krim Vanilla": { calories: 207, protein: 3.5, carbs: 24, fat: 11, category: "Snack" },
+            "Cokelat Batangan": { calories: 546, protein: 4.9, carbs: 61, fat: 31, category: "Snack" },
+            "Donat": { calories: 452, protein: 4.9, carbs: 51, fat: 25, category: "Snack" }
+        };
+
+        // Global state untuk menyimpan profil
+        let userProfile = {
+            weight: null,
+            height: null,
+            bmi: null,
+            targetCalories: null,
+            goal: null,
+            goalText: null
+        };
+
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize navigation
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-link');
             const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
@@ -300,12 +493,16 @@
                     }
                 });
                 window.scrollTo(0, 0);
+                
+                // Update dashboard when switching to it
+                if (id === 'dashboard') {
+                    updateDashboard();
+                }
             }
 
             function navigate(e) {
                 e.preventDefault();
                 const targetId = e.currentTarget.getAttribute('href').substring(1);
-                // FIX: use a proper string for the URL hash
                 history.pushState({}, '', `#${targetId}`);
                 showSection(targetId);
                 updateActiveLink(targetId);
@@ -340,14 +537,14 @@
             window.addEventListener('popstate', () => {
                 const hash = window.location.hash.substring(1) || 'beranda';
                 showSection(hash);
-                updateActiveLink(hash); // FIX: keep nav highlight in sync on back/forward
+                updateActiveLink(hash);
             });
             
             const initialHash = window.location.hash.substring(1) || 'beranda';
             showSection(initialHash);
             updateActiveLink(initialHash);
 
-
+            // Calculator functionality
             const calculatorForm = document.getElementById('calculator-form');
             calculatorForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -358,24 +555,61 @@
                 const weight = parseFloat(formData.get('weight'));
                 const height = parseFloat(formData.get('height'));
                 const activity = parseFloat(formData.get('activity'));
+                const goal = formData.get('goal');
 
                 if (isNaN(age) || isNaN(weight) || isNaN(height) || age <= 0 || weight <= 0 || height <= 0) {
                     alert('Mohon isi semua data dengan angka yang valid.');
                     return;
                 }
 
+                // Calculate BMI
                 const heightInMeters = height / 100;
                 const bmi = weight / (heightInMeters * heightInMeters);
                 
+                // Calculate BMR using Mifflin-St Jeor equation (more accurate)
                 let bmr;
                 if (gender === 'male') {
-                    bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+                    bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
                 } else {
-                    bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+                    bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
                 }
                 
                 const tdee = bmr * activity;
 
+                // Calculate target based on goal
+                let targetCalories;
+                let goalDescription;
+                let goalText;
+                
+                switch(goal) {
+                    case 'lose':
+                        targetCalories = Math.round(tdee - 300);
+                        goalDescription = 'Defisit kalori untuk menurunkan berat badan';
+                        goalText = 'Menurunkan berat badan';
+                        break;
+                    case 'gain':
+                        targetCalories = Math.round(tdee + 300);
+                        goalDescription = 'Surplus kalori untuk menaikkan berat badan';
+                        goalText = 'Menaikkan berat badan';
+                        break;
+                    default:
+                        targetCalories = Math.round(tdee);
+                        goalDescription = 'Kalori untuk menjaga berat badan';
+                        goalText = 'Menjaga berat badan';
+                }
+
+                // Store calculation results
+                window.calculationResults = {
+                    weight,
+                    height,
+                    bmi,
+                    targetCalories,
+                    goal,
+                    goalText,
+                    tdee: Math.round(tdee)
+                };
+
+                // Display results
                 document.getElementById('bmi-result').textContent = bmi.toFixed(1);
                 let bmiStatusText;
                 if (bmi < 18.5) bmiStatusText = 'Berat Badan Kurang';
@@ -384,36 +618,198 @@
                 else bmiStatusText = 'Obesitas';
                 document.getElementById('bmi-status').textContent = bmiStatusText;
 
-                document.getElementById('tdee-result').textContent = Math.round(tdee);
-                // FIX: proper string/template literals
+                document.getElementById('target-calories').textContent = targetCalories;
+                document.getElementById('goal-description').textContent = goalDescription;
+                
+                document.getElementById('tdee-maintain').textContent = `${Math.round(tdee)} kkal/hari`;
                 document.getElementById('tdee-loss').textContent = `${Math.round(tdee - 300)} kkal/hari`;
                 document.getElementById('tdee-gain').textContent = `${Math.round(tdee + 300)} kkal/hari`;
                 
                 document.getElementById('calculator-results').classList.remove('hidden');
             });
 
+            // Save profile functionality
+            document.getElementById('save-profile-btn').addEventListener('click', () => {
+                if (window.calculationResults) {
+                    userProfile = { ...window.calculationResults };
+                    alert('Profil berhasil disimpan! Silakan cek dashboard Anda.');
+                    // Navigate to dashboard
+                    history.pushState({}, '', '#dashboard');
+                    showSection('dashboard');
+                    updateActiveLink('dashboard');
+                }
+            });
+
+            // Set current date
             const today = new Date();
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             document.getElementById('current-date').textContent = today.toLocaleDateString('id-ID', options);
 
-            let foodLog = [
-                { name: 'Nasi Uduk (1 piring)', calories: 400 },
-                { name: 'Gado-gado (1 porsi)', calories: 350 }
-            ];
-            let calorieGoal = 1850;
+            // Initialize food database dropdown
+            function initializeFoodDropdown() {
+                const foodSelect = document.getElementById('food-select');
+                const categories = {};
+                
+                // Group foods by category
+                Object.keys(foodDatabase).forEach(food => {
+                    const category = foodDatabase[food].category;
+                    if (!categories[category]) categories[category] = [];
+                    categories[category].push(food);
+                });
+                
+                // Populate dropdown with optgroups
+                Object.keys(categories).sort().forEach(category => {
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = category;
+                    
+                    categories[category].sort().forEach(food => {
+                        const option = document.createElement('option');
+                        option.value = food;
+                        option.textContent = food;
+                        optgroup.appendChild(option);
+                    });
+                    
+                    foodSelect.appendChild(optgroup);
+                });
+            }
 
+            // Handle food selection and preview
+            document.getElementById('food-select').addEventListener('change', function() {
+                const selectedFood = this.value;
+                const weightInput = document.getElementById('food-weight');
+                const previewDiv = document.getElementById('nutrition-preview');
+                
+                if (selectedFood && foodDatabase[selectedFood]) {
+                    previewDiv.classList.remove('hidden');
+                    weightInput.value = weightInput.value || '100';
+                    updateNutritionPreview();
+                } else {
+                    previewDiv.classList.add('hidden');
+                }
+            });
+
+            // Handle weight change and update preview
+            document.getElementById('food-weight').addEventListener('input', function() {
+                const selectedFood = document.getElementById('food-select').value;
+                if (selectedFood && foodDatabase[selectedFood]) {
+                    updateNutritionPreview();
+                }
+            });
+
+            function updateNutritionPreview() {
+                const selectedFood = document.getElementById('food-select').value;
+                const weight = parseFloat(document.getElementById('food-weight').value) || 100;
+                
+                if (selectedFood && foodDatabase[selectedFood]) {
+                    const food = foodDatabase[selectedFood];
+                    const multiplier = weight / 100;
+                    
+                    document.getElementById('preview-weight').textContent = weight;
+                    document.getElementById('preview-calories').textContent = Math.round(food.calories * multiplier);
+                    document.getElementById('preview-protein').textContent = (food.protein * multiplier).toFixed(1) + 'g';
+                    document.getElementById('preview-carbs').textContent = (food.carbs * multiplier).toFixed(1) + 'g';
+                    document.getElementById('preview-fat').textContent = (food.fat * multiplier).toFixed(1) + 'g';
+                }
+            }
+
+            // Food log functionality with macronutrients
+            let foodLog = [];
             const foodListEl = document.getElementById('food-list');
             const foodForm = document.getElementById('food-form');
             const caloriesConsumedEl = document.getElementById('calories-consumed');
+            const caloriesTotalEl = document.getElementById('calories-total');
             const emptyLogMessage = document.getElementById('empty-log-message');
 
+            function renderFoodLog() {
+                foodListEl.innerHTML = '';
+                if(foodLog.length === 0){
+                    emptyLogMessage.style.display = 'block';
+                } else {
+                    emptyLogMessage.style.display = 'none';
+                    foodLog.forEach((food, index) => {
+                        const li = document.createElement('li');
+                        li.className = 'bg-stone-50 p-3 rounded-md';
+                        li.innerHTML = `
+                            <div class="flex justify-between items-start">
+                                <div class="flex-grow">
+                                    <div class="flex justify-between items-center">
+                                        <p class="font-medium text-stone-700">${food.name}</p>
+                                        <button data-index="${index}" class="remove-food-btn text-stone-400 hover:text-red-500 text-xl ml-2">&times;</button>
+                                    </div>
+                                    <p class="text-sm text-stone-500">${food.weight}g • ${food.calories} kkal</p>
+                                    <div class="flex space-x-3 mt-1 text-xs">
+                                        <span class="text-blue-600">P: ${food.protein}g</span>
+                                        <span class="text-orange-600">K: ${food.carbs}g</span>
+                                        <span class="text-red-600">L: ${food.fat}g</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        foodListEl.appendChild(li);
+                    });
+                }
+                updateCalorieChart();
+                updateMacronutrientSummary();
+            }
+
+            function updateMacronutrientSummary() {
+                const totals = foodLog.reduce((sum, food) => ({
+                    protein: sum.protein + food.protein,
+                    carbs: sum.carbs + food.carbs,
+                    fat: sum.fat + food.fat
+                }), { protein: 0, carbs: 0, fat: 0 });
+
+                document.getElementById('total-protein').textContent = totals.protein.toFixed(1) + 'g';
+                document.getElementById('total-carbs').textContent = totals.carbs.toFixed(1) + 'g';
+                document.getElementById('total-fat').textContent = totals.fat.toFixed(1) + 'g';
+            }
+            
+            foodForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const selectedFood = document.getElementById('food-select').value;
+                const weight = parseFloat(document.getElementById('food-weight').value);
+                
+                if (selectedFood && weight > 0 && foodDatabase[selectedFood]) {
+                    const food = foodDatabase[selectedFood];
+                    const multiplier = weight / 100;
+                    
+                    const foodEntry = {
+                        name: selectedFood,
+                        weight: weight,
+                        calories: Math.round(food.calories * multiplier),
+                        protein: parseFloat((food.protein * multiplier).toFixed(1)),
+                        carbs: parseFloat((food.carbs * multiplier).toFixed(1)),
+                        fat: parseFloat((food.fat * multiplier).toFixed(1))
+                    };
+                    
+                    foodLog.push(foodEntry);
+                    renderFoodLog();
+                    
+                    // Reset form
+                    document.getElementById('food-select').value = '';
+                    document.getElementById('food-weight').value = '';
+                    document.getElementById('nutrition-preview').classList.add('hidden');
+                } else {
+                    alert('Mohon pilih makanan dan masukkan berat yang valid.');
+                }
+            });
+            
+            foodListEl.addEventListener('click', (e) => {
+                if(e.target.classList.contains('remove-food-btn')) {
+                    const index = parseInt(e.target.dataset.index, 10);
+                    foodLog.splice(index, 1);
+                    renderFoodLog();
+                }
+            });
+
+            // Initialize chart
             const ctx = document.getElementById('calorie-chart').getContext('2d');
             let calorieChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
                     labels: ['Terkonsumsi', 'Sisa'],
                     datasets: [{
-                        data: [0, calorieGoal],
+                        data: [0, 2000],
                         backgroundColor: ['#14b8a6', '#f1f5f9'],
                         borderColor: ['#14b8a6', '#f1f5f9'],
                         borderWidth: 1,
@@ -430,59 +826,125 @@
                 }
             });
 
-            function renderFoodLog() {
-                foodListEl.innerHTML = '';
-                if(foodLog.length === 0){
-                    emptyLogMessage.style.display = 'block';
+            function updateDashboard() {
+                const hasProfile = userProfile.targetCalories !== null;
+                const noProfileWarning = document.getElementById('no-profile-warning');
+                const dashboardContent = document.getElementById('dashboard-content');
+                
+                if (hasProfile) {
+                    noProfileWarning.style.display = 'none';
+                    dashboardContent.style.display = 'grid';
+                    
+                    // Update profile display
+                    document.getElementById('profile-weight').textContent = `${userProfile.weight} kg`;
+                    document.getElementById('profile-height').textContent = `${userProfile.height} cm`;
+                    document.getElementById('profile-bmi').textContent = userProfile.bmi.toFixed(1);
+                    document.getElementById('profile-target').textContent = `${userProfile.targetCalories} kkal/hari`;
+                    document.getElementById('profile-goal').textContent = userProfile.goalText;
+                    
+                    // Update calorie target
+                    caloriesTotalEl.textContent = userProfile.targetCalories;
+                    updateCalorieChart();
                 } else {
-                    emptyLogMessage.style.display = 'none';
-                    foodLog.forEach((food, index) => {
-                        const li = document.createElement('li');
-                        li.className = 'flex justify-between items-center bg-stone-50 p-3 rounded-md';
-                        li.innerHTML = `
-                            <div>
-                                <p class="font-medium text-stone-700">${food.name}</p>
-                                <p class="text-sm text-stone-500">${food.calories} kkal</p>
-                            </div>
-                            <button data-index="${index}" class="remove-food-btn text-stone-400 hover:text-red-500">&times;</button>
-                        `;
-                        foodListEl.appendChild(li);
-                    });
+                    noProfileWarning.style.display = 'block';
+                    dashboardContent.style.display = 'none';
                 }
-                updateSummary();
             }
 
-            function updateSummary() {
+            function updateCalorieChart() {
                 const consumed = foodLog.reduce((sum, food) => sum + food.calories, 0);
-                caloriesConsumedEl.textContent = consumed;
+                const target = userProfile.targetCalories || 2000;
+                const remaining = Math.max(0, target - consumed);
                 
-                const remaining = Math.max(0, calorieGoal - consumed);
+                caloriesConsumedEl.textContent = consumed;
+                caloriesTotalEl.textContent = target;
+                
                 calorieChart.data.datasets[0].data[0] = consumed;
                 calorieChart.data.datasets[0].data[1] = remaining;
                 calorieChart.update();
+                
+                // Update status
+                const statusEl = document.getElementById('calorie-status');
+                if (consumed > target) {
+                    statusEl.textContent = `Melebihi target sebesar ${consumed - target} kkal`;
+                    statusEl.className = 'mt-2 text-sm text-red-600';
+                } else if (consumed === target) {
+                    statusEl.textContent = 'Target tercapai! 🎉';
+                    statusEl.className = 'mt-2 text-sm text-green-600';
+                } else {
+                    statusEl.textContent = `Sisa ${remaining} kkal lagi`;
+                    statusEl.className = 'mt-2 text-sm text-blue-600';
+                }
             }
-            
-            foodForm.addEventListener('submit', (e) => {
+
+            // Edit profile modal functionality
+            const editProfileBtn = document.getElementById('edit-profile-btn');
+            const editProfileModal = document.getElementById('edit-profile-modal');
+            const closeEditBtn = document.getElementById('close-edit');
+            const editProfileForm = document.getElementById('edit-profile-form');
+
+            editProfileBtn.addEventListener('click', () => {
+                if (userProfile.targetCalories) {
+                    document.getElementById('edit-weight').value = userProfile.weight;
+                    document.getElementById('edit-height').value = userProfile.height;
+                    document.getElementById('edit-calorie').value = userProfile.targetCalories;
+                    document.getElementById('edit-goal').value = userProfile.goal;
+                    editProfileModal.classList.remove('hidden');
+                }
+            });
+
+            closeEditBtn.addEventListener('click', () => {
+                editProfileModal.classList.add('hidden');
+            });
+
+            editProfileModal.addEventListener('click', (e) => {
+                if (e.target === editProfileModal) {
+                    editProfileModal.classList.add('hidden');
+                }
+            });
+
+            editProfileForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const name = document.getElementById('food-name').value.trim();
-                const calories = parseInt(document.getElementById('food-calories').value, 10);
-                if (name && calories > 0) {
-                    foodLog.push({ name, calories });
-                    renderFoodLog();
-                    foodForm.reset();
-                }
-            });
-            
-            foodListEl.addEventListener('click', (e) => {
-                if(e.target.classList.contains('remove-food-btn')) {
-                    const index = parseInt(e.target.dataset.index, 10);
-                    foodLog.splice(index, 1);
-                    renderFoodLog();
+                
+                const weight = parseFloat(document.getElementById('edit-weight').value);
+                const height = parseFloat(document.getElementById('edit-height').value);
+                const targetCalories = parseInt(document.getElementById('edit-calorie').value);
+                const goal = document.getElementById('edit-goal').value;
+                
+                if (weight > 0 && height > 0 && targetCalories > 0) {
+                    // Calculate new BMI
+                    const heightInMeters = height / 100;
+                    const bmi = weight / (heightInMeters * heightInMeters);
+                    
+                    // Set goal text
+                    let goalText;
+                    switch(goal) {
+                        case 'lose': goalText = 'Menurunkan berat badan'; break;
+                        case 'gain': goalText = 'Menaikkan berat badan'; break;
+                        default: goalText = 'Menjaga berat badan';
+                    }
+                    
+                    // Update profile
+                    userProfile = {
+                        weight,
+                        height,
+                        bmi,
+                        targetCalories,
+                        goal,
+                        goalText
+                    };
+                    
+                    updateDashboard();
+                    editProfileModal.classList.add('hidden');
+                    alert('Profil berhasil diperbarui!');
+                } else {
+                    alert('Mohon isi semua data dengan angka yang valid.');
                 }
             });
 
+            // Initialize everything
+            initializeFoodDropdown();
             renderFoodLog();
-
         });
     </script>
 </body>
