@@ -287,6 +287,7 @@
                                                 <p class="text-red-700">Lemak</p>
                                             </div>
                                         </div>
+                                        <p class="text-xs text-teal-600 mt-2" id="data-source">Sumber: -</p>
                                     </div>
                                     
                                     <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
@@ -388,82 +389,114 @@
         
         <!-- FOOTER -->
         <footer class="bg-white border-t border-stone-200">
-             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center text-sm text-stone-500">
-                 <div class="flex justify-center space-x-6">
-                    <a href="#" class="hover:text-teal-600">Tentang</a>
-                    <a href="#" class="hover:text-teal-600">Privacy</a>
-                    <a href="#" class="hover:text-teal-600">Disclaimer</a>
-                    <a href="#" class="hover:text-teal-600">Kontak</a>
+             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="text-center text-sm text-stone-500 space-y-4">
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="hover:text-teal-600">Tentang</a>
+                        <a href="#" class="hover:text-teal-600">Privacy</a>
+                        <a href="#" class="hover:text-teal-600">Disclaimer</a>
+                        <a href="#" class="hover:text-teal-600">Kontak</a>
+                    </div>
+                    
+                    <!-- Data Sources Disclaimer -->
+                    <div class="bg-stone-50 p-4 rounded-lg text-xs text-stone-600">
+                        <h4 class="font-medium text-stone-800 mb-2">Sumber Data Nutrisi:</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <div>
+                                <p class="font-medium">Makanan Indonesia:</p>
+                                <p>TKPI 2017 - Tabel Komposisi Pangan Indonesia</p>
+                                <p>Kementerian Kesehatan Republik Indonesia</p>
+                            </div>
+                            <div>
+                                <p class="font-medium">Makanan Internasional:</p>
+                                <p>USDA FoodData Central</p>
+                                <p>U.S. Department of Agriculture</p>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-stone-500">
+                            <strong>Disclaimer:</strong> Data nutrisi bersifat estimasi dan dapat bervariasi tergantung metode pengolahan, 
+                            varietas bahan, dan faktor lainnya. Konsultasikan dengan ahli gizi untuk kebutuhan diet khusus.
+                        </p>
+                    </div>
+                    
+                    <p>&copy; 2025 NutriSimple. All rights reserved.</p>
                 </div>
-                <p class="mt-4">&copy; 2025 NutriSimple. All rights reserved.</p>
              </div>
         </footer>
     </div>
 
     <script>
-        // Database makanan dengan makronutrien (per 100g)
+        // Database makanan dengan makronutrien dari TKPI 2017 & USDA FoodData Central
+        // Sumber: Kemenkes RI (TKPI 2017) & USDA FoodData Central
         const foodDatabase = {
-            // === MAKANAN POKOK ===
-            "Nasi Putih": { calories: 130, protein: 2.7, carbs: 28, fat: 0.3, category: "Makanan Pokok" },
-            "Nasi Merah": { calories: 111, protein: 2.3, carbs: 22, fat: 0.9, category: "Makanan Pokok" },
-            "Nasi Goreng": { calories: 163, protein: 4.2, carbs: 20, fat: 7.5, category: "Makanan Pokok" },
-            "Mie Ayam": { calories: 142, protein: 5.8, carbs: 18, fat: 5.2, category: "Makanan Pokok" },
-            "Mie Goreng": { calories: 188, protein: 6.5, carbs: 27, fat: 6.8, category: "Makanan Pokok" },
-            "Roti Tawar Putih": { calories: 265, protein: 9, carbs: 49, fat: 3.2, category: "Makanan Pokok" },
-            "Roti Gandum": { calories: 247, protein: 13, carbs: 41, fat: 4.2, category: "Makanan Pokok" },
-            "Kentang Rebus": { calories: 87, protein: 1.9, carbs: 20, fat: 0.1, category: "Makanan Pokok" },
+            // === MAKANAN POKOK - TKPI 2017 ===
+            "Nasi Putih": { calories: 129, protein: 2.7, carbs: 28.1, fat: 0.3, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Nasi Merah": { calories: 110, protein: 2.5, carbs: 22.9, fat: 0.9, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Nasi Goreng": { calories: 228, protein: 4.2, carbs: 31.7, fat: 9.4, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Mie Ayam": { calories: 125, protein: 4.9, carbs: 18.6, fat: 3.7, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Mie Goreng": { calories: 199, protein: 5.2, carbs: 40.0, fat: 2.7, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Roti Tawar Putih": { calories: 248, protein: 8.0, carbs: 50.0, fat: 1.2, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Kentang Rebus": { calories: 62, protein: 2.1, carbs: 13.5, fat: 0.1, category: "Makanan Pokok", source: "TKPI 2017" },
+            "Jagung Rebus": { calories: 96, protein: 3.5, carbs: 22.8, fat: 1.0, category: "Makanan Pokok", source: "TKPI 2017" },
             
-            // === LAUK PAUK ===
-            "Ayam Goreng": { calories: 250, protein: 25, carbs: 0, fat: 16, category: "Lauk Pauk" },
-            "Ayam Bakar": { calories: 189, protein: 29, carbs: 0, fat: 7.4, category: "Lauk Pauk" },
-            "Rendang Daging": { calories: 193, protein: 22, carbs: 3.8, fat: 10, category: "Lauk Pauk" },
-            "Ikan Bakar": { calories: 180, protein: 25, carbs: 0, fat: 8, category: "Lauk Pauk" },
-            "Ikan Goreng": { calories: 204, protein: 22, carbs: 0, fat: 12, category: "Lauk Pauk" },
-            "Telur Dadar": { calories: 154, protein: 11, carbs: 0.6, fat: 12, category: "Lauk Pauk" },
-            "Telur Rebus": { calories: 155, protein: 13, carbs: 1.1, fat: 11, category: "Lauk Pauk" },
-            "Tahu Goreng": { calories: 271, protein: 17, carbs: 10, fat: 17, category: "Lauk Pauk" },
-            "Tempe Goreng": { calories: 193, protein: 20, carbs: 9, fat: 8, category: "Lauk Pauk" },
-            "Sate Ayam (5 tusuk)": { calories: 165, protein: 18, carbs: 3, fat: 8.5, category: "Lauk Pauk" },
+            // === LAUK PAUK - TKPI 2017 ===
+            "Ayam Goreng": { calories: 298, protein: 18.2, carbs: 11.5, fat: 20.9, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Ayam Bakar": { calories: 164, protein: 25.8, carbs: 0, fat: 6.2, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Rendang Daging": { calories: 468, protein: 28.3, carbs: 4.5, fat: 37.0, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Ikan Bakar": { calories: 140, protein: 22.0, carbs: 0, fat: 4.5, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Ikan Goreng": { calories: 188, protein: 20.0, carbs: 2.0, fat: 10.3, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Telur Ayam Rebus": { calories: 154, protein: 12.4, carbs: 0.7, fat: 10.8, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Telur Dadar": { calories: 199, protein: 10.8, carbs: 1.5, fat: 17.0, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Tahu Goreng": { calories: 134, protein: 10.6, carbs: 4.9, fat: 8.1, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Tempe Goreng": { calories: 192, protein: 14.0, carbs: 11.5, fat: 10.8, category: "Lauk Pauk", source: "TKPI 2017" },
+            "Sate Ayam (5 tusuk)": { calories: 210, protein: 14.1, carbs: 3.0, fat: 15.5, category: "Lauk Pauk", source: "TKPI 2017" },
             
-            // === SAYURAN ===
-            "Gado-gado": { calories: 95, protein: 4.5, carbs: 8, fat: 5.2, category: "Sayuran" },
-            "Sayur Asem": { calories: 35, protein: 2, carbs: 7, fat: 0.2, category: "Sayuran" },
-            "Cap Cay": { calories: 45, protein: 3, carbs: 6, fat: 1.5, category: "Sayuran" },
-            "Tumis Kangkung": { calories: 29, protein: 2.9, carbs: 3.1, fat: 0.7, category: "Sayuran" },
-            "Sayur Sop": { calories: 25, protein: 1.8, carbs: 4.5, fat: 0.5, category: "Sayuran" },
-            "Lalapan": { calories: 23, protein: 1.2, carbs: 4.8, fat: 0.2, category: "Sayuran" },
+            // === SAYURAN - TKPI 2017 ===
+            "Gado-gado": { calories: 136, protein: 4.0, carbs: 9.4, fat: 9.0, category: "Sayuran", source: "TKPI 2017" },
+            "Sayur Asem": { calories: 31, protein: 1.5, carbs: 7.2, fat: 0.2, category: "Sayuran", source: "TKPI 2017" },
+            "Cap Cay": { calories: 58, protein: 2.8, carbs: 8.8, fat: 1.7, category: "Sayuran", source: "TKPI 2017" },
+            "Tumis Kangkung": { calories: 36, protein: 3.0, carbs: 6.2, fat: 0.7, category: "Sayuran", source: "TKPI 2017" },
+            "Sayur Sop": { calories: 18, protein: 1.2, carbs: 3.8, fat: 0.2, category: "Sayuran", source: "TKPI 2017" },
+            "Bayam Rebus": { calories: 36, protein: 3.5, carbs: 6.5, fat: 0.5, category: "Sayuran", source: "TKPI 2017" },
+            "Buncis Rebus": { calories: 35, protein: 2.4, carbs: 7.1, fat: 0.2, category: "Sayuran", source: "TKPI 2017" },
             
-            // === BUAH-BUAHAN ===
-            "Pisang": { calories: 89, protein: 1.1, carbs: 23, fat: 0.3, category: "Buah" },
-            "Apel": { calories: 52, protein: 0.3, carbs: 14, fat: 0.2, category: "Buah" },
-            "Jeruk": { calories: 47, protein: 0.9, carbs: 12, fat: 0.1, category: "Buah" },
-            "Mangga": { calories: 60, protein: 0.8, carbs: 15, fat: 0.4, category: "Buah" },
-            "Pepaya": { calories: 43, protein: 0.5, carbs: 11, fat: 0.3, category: "Buah" },
-            "Semangka": { calories: 30, protein: 0.6, carbs: 8, fat: 0.2, category: "Buah" },
+            // === BUAH-BUAHAN - TKPI 2017 ===
+            "Pisang Ambon": { calories: 99, protein: 1.2, carbs: 25.8, fat: 0.2, category: "Buah", source: "TKPI 2017" },
+            "Pisang Raja": { calories: 118, protein: 1.0, carbs: 31.8, fat: 0.2, category: "Buah", source: "TKPI 2017" },
+            "Jeruk Manis": { calories: 45, protein: 0.9, carbs: 11.2, fat: 0.2, category: "Buah", source: "TKPI 2017" },
+            "Mangga Golek": { calories: 46, protein: 0.6, carbs: 12.1, fat: 0.1, category: "Buah", source: "TKPI 2017" },
+            "Pepaya": { calories: 46, protein: 0.5, carbs: 12.2, fat: 0.1, category: "Buah", source: "TKPI 2017" },
+            "Semangka": { calories: 28, protein: 0.5, carbs: 6.9, fat: 0.2, category: "Buah", source: "TKPI 2017" },
+            "Apel Malang": { calories: 58, protein: 0.3, carbs: 14.9, fat: 0.4, category: "Buah", source: "TKPI 2017" },
+            "Rambutan": { calories: 69, protein: 1.0, carbs: 16.5, fat: 0.3, category: "Buah", source: "TKPI 2017" },
             
-            // === MAKANAN INTERNASIONAL ===
-            "Pizza Margherita": { calories: 266, protein: 11, carbs: 33, fat: 10, category: "Internasional" },
-            "Burger Beef": { calories: 295, protein: 17, carbs: 22, fat: 16, category: "Internasional" },
-            "Pasta Bolognese": { calories: 163, protein: 7.8, carbs: 20, fat: 6.2, category: "Internasional" },
-            "Fried Rice": { calories: 163, protein: 4.2, carbs: 20, fat: 7.5, category: "Internasional" },
-            "Chicken Steak": { calories: 220, protein: 26, carbs: 2, fat: 11, category: "Internasional" },
-            "Sandwich": { calories: 250, protein: 12, carbs: 30, fat: 10, category: "Internasional" },
-            "Caesar Salad": { calories: 87, protein: 6, carbs: 4, fat: 6, category: "Internasional" },
+            // === MAKANAN INTERNASIONAL - USDA FoodData Central ===
+            "Pizza Margherita": { calories: 266, protein: 11.4, carbs: 33.0, fat: 10.4, category: "Internasional", source: "USDA FDC" },
+            "Burger Beef": { calories: 295, protein: 17.0, carbs: 24.0, fat: 16.0, category: "Internasional", source: "USDA FDC" },
+            "Pasta Bolognese": { calories: 135, protein: 6.8, carbs: 18.0, fat: 4.4, category: "Internasional", source: "USDA FDC" },
+            "Chicken Steak": { calories: 231, protein: 24.0, carbs: 0, fat: 14.8, category: "Internasional", source: "USDA FDC" },
+            "Sandwich Club": { calories: 282, protein: 15.8, carbs: 26.2, fat: 13.4, category: "Internasional", source: "USDA FDC" },
+            "Caesar Salad": { calories: 56, protein: 3.0, carbs: 3.0, fat: 4.5, category: "Internasional", source: "USDA FDC" },
+            "Fried Rice": { calories: 163, protein: 4.2, carbs: 20.0, fat: 7.5, category: "Internasional", source: "USDA FDC" },
+            "French Fries": { calories: 365, protein: 4.0, carbs: 63.0, fat: 17.0, category: "Internasional", source: "USDA FDC" },
             
-            // === MINUMAN ===
-            "Es Teh Manis": { calories: 35, protein: 0, carbs: 9, fat: 0, category: "Minuman" },
-            "Kopi Hitam": { calories: 2, protein: 0.3, carbs: 0, fat: 0, category: "Minuman" },
-            "Kopi Susu": { calories: 42, protein: 2.2, carbs: 5, fat: 1.7, category: "Minuman" },
-            "Jus Jeruk": { calories: 45, protein: 0.7, carbs: 10, fat: 0.2, category: "Minuman" },
-            "Susu UHT": { calories: 61, protein: 3.2, carbs: 4.5, fat: 3.5, category: "Minuman" },
-            "Air Mineral": { calories: 0, protein: 0, carbs: 0, fat: 0, category: "Minuman" },
+            // === MINUMAN - TKPI 2017 & USDA ===
+            "Es Teh Manis": { calories: 41, protein: 0, carbs: 10.7, fat: 0, category: "Minuman", source: "TKPI 2017" },
+            "Kopi Hitam": { calories: 9, protein: 0.1, carbs: 1.8, fat: 0.2, category: "Minuman", source: "TKPI 2017" },
+            "Kopi Susu": { calories: 74, protein: 2.2, carbs: 8.0, fat: 3.7, category: "Minuman", source: "TKPI 2017" },
+            "Jus Jeruk": { calories: 51, protein: 0.5, carbs: 13.4, fat: 0.1, category: "Minuman", source: "TKPI 2017" },
+            "Susu Sapi": { calories: 61, protein: 3.0, carbs: 4.3, fat: 3.5, category: "Minuman", source: "TKPI 2017" },
+            "Air Mineral": { calories: 0, protein: 0, carbs: 0, fat: 0, category: "Minuman", source: "USDA FDC" },
+            "Coca Cola": { calories: 42, protein: 0, carbs: 10.6, fat: 0, category: "Minuman", source: "USDA FDC" },
             
-            // === SNACK & DESSERT ===
-            "Keripik Singkong": { calories: 544, protein: 2.4, carbs: 55, fat: 35, category: "Snack" },
-            "Biskuit Marie": { calories: 458, protein: 7.5, carbs: 77, fat: 13, category: "Snack" },
-            "Es Krim Vanilla": { calories: 207, protein: 3.5, carbs: 24, fat: 11, category: "Snack" },
-            "Cokelat Batangan": { calories: 546, protein: 4.9, carbs: 61, fat: 31, category: "Snack" },
-            "Donat": { calories: 452, protein: 4.9, carbs: 51, fat: 25, category: "Snack" }
+            // === SNACK & DESSERT - TKPI 2017 & USDA ===
+            "Keripik Singkong": { calories: 526, protein: 2.5, carbs: 61.1, fat: 29.4, category: "Snack", source: "TKPI 2017" },
+            "Biskuit Marie": { calories: 458, protein: 6.8, carbs: 71.5, fat: 16.4, category: "Snack", source: "TKPI 2017" },
+            "Es Krim Vanilla": { calories: 207, protein: 3.5, carbs: 23.6, fat: 11.0, category: "Snack", source: "USDA FDC" },
+            "Cokelat Susu": { calories: 535, protein: 7.9, carbs: 59.4, fat: 29.7, category: "Snack", source: "USDA FDC" },
+            "Donat Gula": { calories: 421, protein: 4.6, carbs: 51.0, fat: 22.0, category: "Snack", source: "USDA FDC" },
+            "Kue Lapis": { calories: 325, protein: 4.9, carbs: 54.2, fat: 10.4, category: "Snack", source: "TKPI 2017" },
+            "Martabak Manis": { calories: 320, protein: 6.2, carbs: 45.0, fat: 13.5, category: "Snack", source: "TKPI 2017" }
         };
 
         // Global state untuk menyimpan profil
@@ -709,6 +742,23 @@
                     document.getElementById('preview-protein').textContent = (food.protein * multiplier).toFixed(1) + 'g';
                     document.getElementById('preview-carbs').textContent = (food.carbs * multiplier).toFixed(1) + 'g';
                     document.getElementById('preview-fat').textContent = (food.fat * multiplier).toFixed(1) + 'g';
+                }
+            }
+
+            function updateNutritionPreview() {
+                const selectedFood = document.getElementById('food-select').value;
+                const weight = parseFloat(document.getElementById('food-weight').value) || 100;
+                
+                if (selectedFood && foodDatabase[selectedFood]) {
+                    const food = foodDatabase[selectedFood];
+                    const multiplier = weight / 100;
+                    
+                    document.getElementById('preview-weight').textContent = weight;
+                    document.getElementById('preview-calories').textContent = Math.round(food.calories * multiplier);
+                    document.getElementById('preview-protein').textContent = (food.protein * multiplier).toFixed(1) + 'g';
+                    document.getElementById('preview-carbs').textContent = (food.carbs * multiplier).toFixed(1) + 'g';
+                    document.getElementById('preview-fat').textContent = (food.fat * multiplier).toFixed(1) + 'g';
+                    document.getElementById('data-source').textContent = `Sumber: ${food.source}`;
                 }
             }
 
