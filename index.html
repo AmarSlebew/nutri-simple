@@ -254,40 +254,51 @@
                                 <h3 class="text-lg font-medium text-stone-900">Pencatat Makanan</h3>
                                 <form id="food-form" class="mt-4 space-y-3">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <div>
-                                            <label class="block text-sm font-medium text-stone-700 mb-1">Pilih Makanan</label>
-                                            <select id="food-select" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
-                                                <option value="">-- Pilih Makanan --</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-sm font-medium text-stone-700 mb-1">Berat (gram)</label>
-                                            <input type="number" id="food-weight" placeholder="100" min="1" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Nutrition Info Preview -->
-                                    <div id="nutrition-preview" class="hidden bg-teal-50 p-3 rounded-lg">
-                                        <h4 class="text-sm font-medium text-teal-800 mb-2">Informasi Nutrisi (per <span id="preview-weight">100</span>g):</h4>
-                                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
-                                            <div class="text-center">
-                                                <p class="font-semibold text-teal-600" id="preview-calories">0</p>
-                                                <p class="text-teal-700">Kalori</p>
+                                        <!-- Kolom kiri: search + dropdown + berat -->
+                                        <div class="space-y-3">
+                                            <div>
+                                                <label class="block text-sm font-medium text-stone-700 mb-1">Pilih Makanan</label>
+                                                <input 
+                                                    type="text" 
+                                                    id="food-search" 
+                                                    placeholder="Cari makanan (misal: nasi, ayam, susu)..." 
+                                                    class="mb-2 w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm"
+                                                >
+                                                <select id="food-select" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
+                                                    <option value="">-- Pilih Makanan --</option>
+                                                </select>
                                             </div>
-                                            <div class="text-center">
-                                                <p class="font-semibold text-blue-600" id="preview-protein">0g</p>
-                                                <p class="text-blue-700">Protein</p>
-                                            </div>
-                                            <div class="text-center">
-                                                <p class="font-semibold text-orange-600" id="preview-carbs">0g</p>
-                                                <p class="text-orange-700">Karbo</p>
-                                            </div>
-                                            <div class="text-center">
-                                                <p class="font-semibold text-red-600" id="preview-fat">0g</p>
-                                                <p class="text-red-700">Lemak</p>
+                                            <div>
+                                                <label class="block text-sm font-medium text-stone-700 mb-1">Berat (gram)</label>
+                                                <input type="number" id="food-weight" placeholder="100" min="1" class="w-full rounded-md border-stone-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 sm:text-sm" required>
                                             </div>
                                         </div>
-                                        <p class="text-xs text-teal-600 mt-2" id="data-source">Sumber: -</p>
+
+                                        <!-- Kolom kanan: preview nutrisi -->
+                                        <div id="nutrition-preview" class="hidden bg-teal-50 p-3 rounded-lg">
+                                            <h4 class="text-sm font-medium text-teal-800 mb-2">
+                                                Informasi Nutrisi (per <span id="preview-weight">100</span>g):
+                                            </h4>
+                                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm">
+                                                <div class="text-center">
+                                                    <p class="font-semibold text-teal-600" id="preview-calories">0</p>
+                                                    <p class="text-teal-700">Kalori</p>
+                                                </div>
+                                                <div class="text-center">
+                                                    <p class="font-semibold text-blue-600" id="preview-protein">0g</p>
+                                                    <p class="text-blue-700">Protein</p>
+                                                </div>
+                                                <div class="text-center">
+                                                    <p class="font-semibold text-orange-600" id="preview-carbs">0g</p>
+                                                    <p class="text-orange-700">Karbo</p>
+                                                </div>
+                                                <div class="text-center">
+                                                    <p class="font-semibold text-red-600" id="preview-fat">0g</p>
+                                                    <p class="text-red-700">Lemak</p>
+                                                </div>
+                                            </div>
+                                            <p class="text-xs text-teal-600 mt-2" id="data-source">Sumber: -</p>
+                                        </div>
                                     </div>
                                     
                                     <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">
@@ -303,7 +314,7 @@
                         </div>
                         
                         <div class="space-y-8">
-                             <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <h3 class="text-lg font-medium text-stone-900">Ringkasan Kalori Harian</h3>
                                 <div class="chart-container my-4">
                                     <canvas id="calorie-chart"></canvas>
@@ -389,7 +400,7 @@
         
         <!-- FOOTER -->
         <footer class="bg-white border-t border-stone-200">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto py-6 px-4 s   m:px-6 lg:px-8">
                 <div class="text-center text-sm text-stone-500 space-y-4">
                     <div class="flex justify-center space-x-6">
                         <a href="#" class="hover:text-teal-600">Tentang</a>
@@ -419,12 +430,14 @@
                         </p>
                     </div>
                     
+                    <p>Kontak person : khatifaputri@gmail.com </p>      
                     <p>&copy; 2025 NutriSimple. All rights reserved.</p>
                 </div>
             </div>
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
