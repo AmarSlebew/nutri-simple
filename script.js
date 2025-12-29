@@ -15,99 +15,99 @@ let foodLog = []; // untuk diary makanan
 // Fungsi bantu: konversi string → number aman
 function parseNumber(value) {
   if (value === null || value === undefined) return 0;
-  const num = parseFloat(String(value).replace(',', '.'));
+  const num = parseFloat(String(value).replace(",", "."));
   return isNaN(num) ? 0 : num;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // =====================================
   // NAVIGASI SECTION (Beranda/Kalkulator/Dashboard)
   // =====================================
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const sections = document.querySelectorAll(".section");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const mobileNavLinks = document.querySelectorAll(".nav-link-mobile");
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   function showSection(id) {
     sections.forEach((section) => {
       if (section.id === id) {
-        section.classList.add('active');
+        section.classList.add("active");
       } else {
-        section.classList.remove('active');
+        section.classList.remove("active");
       }
     });
 
     window.scrollTo(0, 0);
 
-    if (id === 'dashboard') {
+    if (id === "dashboard") {
       updateDashboard();
     }
   }
 
   function updateActiveLink(targetId) {
     [...navLinks, ...mobileNavLinks].forEach((link) => {
-      if (link.getAttribute('href') === `#${targetId}`) {
-        link.classList.add('bg-teal-50', 'text-teal-600');
+      if (link.getAttribute("href") === `#${targetId}`) {
+        link.classList.add("bg-teal-50", "text-teal-600");
       } else {
-        link.classList.remove('bg-teal-50', 'text-teal-600');
+        link.classList.remove("bg-teal-50", "text-teal-600");
       }
     });
   }
 
   function navigate(e) {
     e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href').substring(1);
-    history.pushState({}, '', `#${targetId}`);
+    const targetId = e.currentTarget.getAttribute("href").substring(1);
+    history.pushState({}, "", `#${targetId}`);
     showSection(targetId);
     updateActiveLink(targetId);
   }
 
-  navLinks.forEach((link) => link.addEventListener('click', navigate));
+  navLinks.forEach((link) => link.addEventListener("click", navigate));
 
   mobileNavLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
+    link.addEventListener("click", (e) => {
       navigate(e);
-      mobileMenu.classList.add('hidden');
-      const [iconOpen, iconClose] = mobileMenuButton.querySelectorAll('svg');
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
+      mobileMenu.classList.add("hidden");
+      const [iconOpen, iconClose] = mobileMenuButton.querySelectorAll("svg");
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
     });
   });
 
-  mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const [iconOpen, iconClose] = mobileMenuButton.querySelectorAll('svg');
-    iconOpen.classList.toggle('hidden');
-    iconClose.classList.toggle('hidden');
+  mobileMenuButton.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    const [iconOpen, iconClose] = mobileMenuButton.querySelectorAll("svg");
+    iconOpen.classList.toggle("hidden");
+    iconClose.classList.toggle("hidden");
   });
 
-  window.addEventListener('popstate', () => {
-    const hash = window.location.hash.substring(1) || 'beranda';
+  window.addEventListener("popstate", () => {
+    const hash = window.location.hash.substring(1) || "beranda";
     showSection(hash);
     updateActiveLink(hash);
   });
 
-  const initialHash = window.location.hash.substring(1) || 'beranda';
+  const initialHash = window.location.hash.substring(1) || "beranda";
   showSection(initialHash);
   updateActiveLink(initialHash);
 
   // =====================================
   // KALKULATOR KALORI & BMI
   // =====================================
-  const calculatorForm = document.getElementById('calculator-form');
+  const calculatorForm = document.getElementById("calculator-form");
 
   if (calculatorForm) {
-    calculatorForm.addEventListener('submit', (e) => {
+    calculatorForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
       const formData = new FormData(calculatorForm);
-      const gender = formData.get('gender');
-      const age = parseFloat(formData.get('age'));
-      const weight = parseFloat(formData.get('weight'));
-      const height = parseFloat(formData.get('height'));
-      const activity = parseFloat(formData.get('activity'));
-      const goal = formData.get('goal');
+      const gender = formData.get("gender");
+      const age = parseFloat(formData.get("age"));
+      const weight = parseFloat(formData.get("weight"));
+      const height = parseFloat(formData.get("height"));
+      const activity = parseFloat(formData.get("activity"));
+      const goal = formData.get("goal");
 
       if (
         isNaN(age) ||
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         weight <= 0 ||
         height <= 0
       ) {
-        alert('Mohon isi semua data dengan angka yang valid.');
+        alert("Mohon isi semua data dengan angka yang valid.");
         return;
       }
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Mifflin-St Jeor
       let bmr;
-      if (gender === 'male') {
+      if (gender === "male") {
         bmr = 10 * weight + 6.25 * height - 5 * age + 5;
       } else {
         bmr = 10 * weight + 6.25 * height - 5 * age - 161;
@@ -139,20 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
       let goalText;
 
       switch (goal) {
-        case 'lose':
+        case "lose":
           targetCalories = Math.round(tdee - 300);
-          goalDescription = 'Defisit kalori untuk menurunkan berat badan';
-          goalText = 'Menurunkan berat badan';
+          goalDescription = "Defisit kalori untuk menurunkan berat badan";
+          goalText = "Menurunkan berat badan";
           break;
-        case 'gain':
+        case "gain":
           targetCalories = Math.round(tdee + 300);
-          goalDescription = 'Surplus kalori untuk menaikkan berat badan';
-          goalText = 'Menaikkan berat badan';
+          goalDescription = "Surplus kalori untuk menaikkan berat badan";
+          goalText = "Menaikkan berat badan";
           break;
         default:
           targetCalories = Math.round(tdee);
-          goalDescription = 'Kalori untuk menjaga berat badan';
-          goalText = 'Menjaga berat badan';
+          goalDescription = "Kalori untuk menjaga berat badan";
+          goalText = "Menjaga berat badan";
       }
 
       window.calculationResults = {
@@ -165,44 +165,42 @@ document.addEventListener('DOMContentLoaded', () => {
         tdee: Math.round(tdee),
       };
 
-      document.getElementById('bmi-result').textContent = bmi.toFixed(1);
+      document.getElementById("bmi-result").textContent = bmi.toFixed(1);
 
       let bmiStatusText;
-      if (bmi < 18.5) bmiStatusText = 'Berat Badan Kurang';
-      else if (bmi < 24.9) bmiStatusText = 'Berat Badan Ideal';
-      else if (bmi < 29.9) bmiStatusText = 'Berat Badan Berlebih';
-      else bmiStatusText = 'Obesitas';
+      if (bmi < 18.5) bmiStatusText = "Berat Badan Kurang";
+      else if (bmi < 24.9) bmiStatusText = "Berat Badan Ideal";
+      else if (bmi < 29.9) bmiStatusText = "Berat Badan Berlebih";
+      else bmiStatusText = "Obesitas";
 
-      document.getElementById('bmi-status').textContent = bmiStatusText;
+      document.getElementById("bmi-status").textContent = bmiStatusText;
 
-      document.getElementById('target-calories').textContent = targetCalories;
-      document.getElementById('goal-description').textContent = goalDescription;
+      document.getElementById("target-calories").textContent = targetCalories;
+      document.getElementById("goal-description").textContent = goalDescription;
 
-      document.getElementById('tdee-maintain').textContent =
-        Math.round(tdee) + ' kkal/hari';
-      document.getElementById('tdee-loss').textContent =
-        Math.round(tdee - 300) + ' kkal/hari';
-      document.getElementById('tdee-gain').textContent =
-        Math.round(tdee + 300) + ' kkal/hari';
+      document.getElementById("tdee-maintain").textContent =
+        Math.round(tdee) + " kkal/hari";
+      document.getElementById("tdee-loss").textContent =
+        Math.round(tdee - 300) + " kkal/hari";
+      document.getElementById("tdee-gain").textContent =
+        Math.round(tdee + 300) + " kkal/hari";
 
-      document
-        .getElementById('calculator-results')
-        .classList.remove('hidden');
+      document.getElementById("calculator-results").classList.remove("hidden");
     });
   }
 
-  const saveProfileBtn = document.getElementById('save-profile-btn');
+  const saveProfileBtn = document.getElementById("save-profile-btn");
   if (saveProfileBtn) {
-    saveProfileBtn.addEventListener('click', () => {
+    saveProfileBtn.addEventListener("click", () => {
       if (window.calculationResults) {
         userProfile = { ...window.calculationResults };
-        alert('Profil berhasil disimpan! Silakan cek dashboard Anda.');
-        history.pushState({}, '', '#dashboard');
-        showSection('dashboard');
-        updateActiveLink('dashboard');
+        alert("Profil berhasil disimpan! Silakan cek dashboard Anda.");
+        history.pushState({}, "", "#dashboard");
+        showSection("dashboard");
+        updateActiveLink("dashboard");
       } else {
         alert(
-          'Silakan hitung kebutuhan kalori Anda terlebih dahulu sebelum menyimpan profil.'
+          "Silakan hitung kebutuhan kalori Anda terlebih dahulu sebelum menyimpan profil."
         );
       }
     });
@@ -211,32 +209,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================================
   // TANGGAL HARI INI DI DASHBOARD
   // =====================================
-  const currentDateEl = document.getElementById('current-date');
+  const currentDateEl = document.getElementById("current-date");
   if (currentDateEl) {
     const today = new Date();
     const options = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     };
-    currentDateEl.textContent = today.toLocaleDateString('id-ID', options);
+    currentDateEl.textContent = today.toLocaleDateString("id-ID", options);
   }
 
   // =====================================
   // PENCATAT MAKANAN + SEARCH + DROPDOWN
   // =====================================
-  const foodSelect = document.getElementById('food-select');
-  const foodSearchInput = document.getElementById('food-search');
-  const foodWeightInput = document.getElementById('food-weight');
-  const nutritionPreview = document.getElementById('nutrition-preview');
+  const foodSelect = document.getElementById("food-select");
+  const foodSearchInput = document.getElementById("food-search");
+  const foodWeightInput = document.getElementById("food-weight");
+  const nutritionPreview = document.getElementById("nutrition-preview");
 
   // Load CSV → isi foodDatabase
   async function loadFoodDatabaseFromCsv() {
     try {
-      const response = await fetch('KOMPUTASI.csv');
+      const response = await fetch("data makanan.csv");
       if (!response.ok) {
-        console.error('Gagal memuat KOMPUTASI.csv:', response.status);
+        console.error("Gagal memuat data makanan.csv:", response.status);
         return;
       }
 
@@ -247,51 +245,51 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       result.data.forEach((row) => {
-        const rawName = row['NAMA BAHAN'];
+        const rawName = row["nama_bahan"];
         if (!rawName) return;
 
-        const name = String(rawName).replace(/\s+/g, ' ').trim();
+        const name = String(rawName).replace(/\s+/g, " ").trim();
         if (!name) return;
 
-        const calories = parseNumber(row['Energi (Kal)']);
-        const protein = parseNumber(row['Protein (g)']);
-        const carbs = parseNumber(row['KH (g)']);
-        const fat = parseNumber(row['LEMAK']);
+        const calories = parseNumber(row["energi"]);
+        const protein = parseNumber(row["protein"]);
+        const carbs = parseNumber(row["kh"]);
+        const fat = parseNumber(row["lemak"]);
 
         foodDatabase[name] = {
           calories,
           protein,
           carbs,
           fat,
-          source: 'TKPI 2017',
+          source: "TKPI 2017",
         };
       });
 
       console.log(
-        'Food database terisi:',
+        "Food database terisi:",
         Object.keys(foodDatabase).length,
-        'item'
+        "item"
       );
 
       // Isi dropdown awal (tanpa filter)
-      initializeFoodDropdown('');
+      initializeFoodDropdown("");
     } catch (err) {
-      console.error('Error saat memuat KOMPUTASI.csv:', err);
+      console.error("Error saat memuat data makanan.csv:", err);
     }
   }
 
   // Isi dropdown berdasarkan searchText
-  function initializeFoodDropdown(searchText = '') {
+  function initializeFoodDropdown(searchText = "") {
     if (!foodSelect) return;
 
-    foodSelect.innerHTML = '';
+    foodSelect.innerHTML = "";
 
-    const placeholder = document.createElement('option');
-    placeholder.value = '';
-    placeholder.textContent = '-- Pilih Makanan --';
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "-- Pilih Makanan --";
     foodSelect.appendChild(placeholder);
 
-    const lowerSearch = (searchText || '').toLowerCase().trim();
+    const lowerSearch = (searchText || "").toLowerCase().trim();
 
     const foods = Object.keys(foodDatabase)
       .filter((name) => {
@@ -301,50 +299,55 @@ document.addEventListener('DOMContentLoaded', () => {
       .sort();
 
     foods.forEach((name) => {
-      const option = document.createElement('option');
+      const option = document.createElement("option");
       option.value = name;
       option.textContent = name;
       foodSelect.appendChild(option);
     });
 
-    console.log('Dropdown terisi. Filter =', searchText, 'Total:', foods.length);
+    console.log(
+      "Dropdown terisi. Filter =",
+      searchText,
+      "Total:",
+      foods.length
+    );
   }
 
   // Ketik di search → filter isi dropdown
   if (foodSearchInput) {
-    foodSearchInput.addEventListener('input', () => {
+    foodSearchInput.addEventListener("input", () => {
       const keyword = foodSearchInput.value;
       initializeFoodDropdown(keyword);
       if (foodSelect) {
-        foodSelect.value = '';
+        foodSelect.value = "";
       }
       if (nutritionPreview) {
-        nutritionPreview.classList.add('hidden');
+        nutritionPreview.classList.add("hidden");
       }
     });
   }
 
   // Ganti pilihan makanan di dropdown → tampilkan preview
   if (foodSelect) {
-    foodSelect.addEventListener('change', () => {
+    foodSelect.addEventListener("change", () => {
       const selectedFood = foodSelect.value;
       if (!selectedFood || !foodDatabase[selectedFood]) {
-        if (nutritionPreview) nutritionPreview.classList.add('hidden');
+        if (nutritionPreview) nutritionPreview.classList.add("hidden");
         return;
       }
 
       if (foodWeightInput && !foodWeightInput.value) {
-        foodWeightInput.value = '100';
+        foodWeightInput.value = "100";
       }
       updateNutritionPreview();
-      if (nutritionPreview) nutritionPreview.classList.remove('hidden');
+      if (nutritionPreview) nutritionPreview.classList.remove("hidden");
     });
   }
 
   // Ganti berat → update preview
   if (foodWeightInput) {
-    foodWeightInput.addEventListener('input', () => {
-      const selectedFood = foodSelect ? foodSelect.value : '';
+    foodWeightInput.addEventListener("input", () => {
+      const selectedFood = foodSelect ? foodSelect.value : "";
       if (selectedFood && foodDatabase[selectedFood]) {
         updateNutritionPreview();
       }
@@ -362,45 +365,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const food = foodDatabase[selectedFood];
     const multiplier = weight / 100;
 
-    document.getElementById('preview-weight').textContent = weight;
-    document.getElementById('preview-calories').textContent = Math.round(
+    document.getElementById("preview-weight").textContent = weight;
+    document.getElementById("preview-calories").textContent = Math.round(
       food.calories * multiplier
     );
-    document.getElementById('preview-protein').textContent =
-      (food.protein * multiplier).toFixed(1) + 'g';
-    document.getElementById('preview-carbs').textContent =
-      (food.carbs * multiplier).toFixed(1) + 'g';
-    document.getElementById('preview-fat').textContent =
-      (food.fat * multiplier).toFixed(1) + 'g';
+    document.getElementById("preview-protein").textContent =
+      (food.protein * multiplier).toFixed(1) + "g";
+    document.getElementById("preview-carbs").textContent =
+      (food.carbs * multiplier).toFixed(1) + "g";
+    document.getElementById("preview-fat").textContent =
+      (food.fat * multiplier).toFixed(1) + "g";
 
-    const ds = document.getElementById('data-source');
+    const ds = document.getElementById("data-source");
     if (ds) {
-      ds.textContent = `Sumber: ${food.source || 'TKPI 2017'}`;
+      ds.textContent = `Sumber: ${food.source || "TKPI 2017"}`;
     }
   }
 
   // =====================================
   // FOOD LOG (DIARY MAKANAN)
   // =====================================
-  const foodForm = document.getElementById('food-form');
-  const foodListEl = document.getElementById('food-list');
-  const emptyLogMessage = document.getElementById('empty-log-message');
-  const caloriesConsumedEl = document.getElementById('calories-consumed');
-  const caloriesTotalEl = document.getElementById('calories-total');
+  const foodForm = document.getElementById("food-form");
+  const foodListEl = document.getElementById("food-list");
+  const emptyLogMessage = document.getElementById("empty-log-message");
+  const caloriesConsumedEl = document.getElementById("calories-consumed");
+  const caloriesTotalEl = document.getElementById("calories-total");
 
   function renderFoodLog() {
     if (!foodListEl || !emptyLogMessage) return;
 
-    foodListEl.innerHTML = '';
+    foodListEl.innerHTML = "";
 
     if (foodLog.length === 0) {
-      emptyLogMessage.style.display = 'block';
+      emptyLogMessage.style.display = "block";
     } else {
-      emptyLogMessage.style.display = 'none';
+      emptyLogMessage.style.display = "none";
 
       foodLog.forEach((food, index) => {
-        const li = document.createElement('li');
-        li.className = 'bg-stone-50 p-3 rounded-md';
+        const li = document.createElement("li");
+        li.className = "bg-stone-50 p-3 rounded-md";
         li.innerHTML = `
           <div class="flex justify-between items-start">
             <div class="flex-grow">
@@ -426,9 +429,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateMacronutrientSummary() {
-    const totalProteinEl = document.getElementById('total-protein');
-    const totalCarbsEl = document.getElementById('total-carbs');
-    const totalFatEl = document.getElementById('total-fat');
+    const totalProteinEl = document.getElementById("total-protein");
+    const totalCarbsEl = document.getElementById("total-carbs");
+    const totalFatEl = document.getElementById("total-fat");
     if (!totalProteinEl || !totalCarbsEl || !totalFatEl) return;
 
     const totals = foodLog.reduce(
@@ -440,13 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
       { protein: 0, carbs: 0, fat: 0 }
     );
 
-    totalProteinEl.textContent = totals.protein.toFixed(1) + 'g';
-    totalCarbsEl.textContent = totals.carbs.toFixed(1) + 'g';
-    totalFatEl.textContent = totals.fat.toFixed(1) + 'g';
+    totalProteinEl.textContent = totals.protein.toFixed(1) + "g";
+    totalCarbsEl.textContent = totals.carbs.toFixed(1) + "g";
+    totalFatEl.textContent = totals.fat.toFixed(1) + "g";
   }
 
   if (foodForm) {
-    foodForm.addEventListener('submit', (e) => {
+    foodForm.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!foodSelect || !foodWeightInput) return;
 
@@ -469,18 +472,18 @@ document.addEventListener('DOMContentLoaded', () => {
         foodLog.push(foodEntry);
         renderFoodLog();
 
-        foodSelect.value = '';
-        foodWeightInput.value = '';
-        if (nutritionPreview) nutritionPreview.classList.add('hidden');
+        foodSelect.value = "";
+        foodWeightInput.value = "";
+        if (nutritionPreview) nutritionPreview.classList.add("hidden");
       } else {
-        alert('Mohon pilih makanan dan masukkan berat yang valid.');
+        alert("Mohon pilih makanan dan masukkan berat yang valid.");
       }
     });
   }
 
   if (foodListEl) {
-    foodListEl.addEventListener('click', (e) => {
-      if (e.target.classList.contains('remove-food-btn')) {
+    foodListEl.addEventListener("click", (e) => {
+      if (e.target.classList.contains("remove-food-btn")) {
         const index = parseInt(e.target.dataset.index, 10);
         if (!isNaN(index)) {
           foodLog.splice(index, 1);
@@ -493,30 +496,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // =====================================
   // CHART KALORI (Chart.js)
   // =====================================
-  const calorieChartCtx = document.getElementById('calorie-chart');
+  const calorieChartCtx = document.getElementById("calorie-chart");
   let calorieChart = null;
 
   // Warna status kalori
-  const CALORIE_COLOR_YELLOW = '#FACC15'; // belum tercapai
-  const CALORIE_COLOR_GREEN = '#14b8a6';  // tercapai (teal seperti di SS)
-  const CALORIE_COLOR_RED = '#EF4444';    // berlebih
-  const CALORIE_COLOR_BG = '#f1f5f9';     // cincin abu muda
+  const CALORIE_COLOR_YELLOW = "#FACC15"; // belum tercapai
+  const CALORIE_COLOR_GREEN = "#14b8a6"; // tercapai (teal seperti di SS)
+  const CALORIE_COLOR_RED = "#EF4444"; // berlebih
+  const CALORIE_COLOR_BG = "#f1f5f9"; // cincin abu muda
 
   if (calorieChartCtx) {
-    const ctx = calorieChartCtx.getContext('2d');
+    const ctx = calorieChartCtx.getContext("2d");
     const initialTarget = userProfile.targetCalories || 2000;
 
     calorieChart = new Chart(ctx, {
-      type: 'doughnut',
+      type: "doughnut",
       data: {
-        labels: ['Terkonsumsi', 'Sisa'],
+        labels: ["Terkonsumsi", "Sisa"],
         datasets: [
           {
             data: [0, initialTarget],
             backgroundColor: [CALORIE_COLOR_YELLOW, CALORIE_COLOR_BG],
             borderColor: [CALORIE_COLOR_YELLOW, CALORIE_COLOR_BG],
             borderWidth: 1,
-            cutout: '80%',
+            cutout: "80%",
           },
         ],
       },
@@ -562,18 +565,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     calorieChart.update();
 
-    const statusEl = document.getElementById('calorie-status');
+    const statusEl = document.getElementById("calorie-status");
     if (!statusEl) return;
 
     if (consumed > target) {
-      statusEl.textContent = `Melebihi target sebesar ${consumed - target} kkal`;
-      statusEl.className = 'mt-2 text-sm text-red-600';
+      statusEl.textContent = `Melebihi target sebesar ${
+        consumed - target
+      } kkal`;
+      statusEl.className = "mt-2 text-sm text-red-600";
     } else if (consumed === target) {
-      statusEl.textContent = 'Target tercapai! 🎉';
-      statusEl.className = 'mt-2 text-sm text-green-600';
+      statusEl.textContent = "Target tercapai! 🎉";
+      statusEl.className = "mt-2 text-sm text-green-600";
     } else {
       statusEl.textContent = `Sisa ${remaining} kkal lagi`;
-      statusEl.className = 'mt-2 text-sm text-blue-600';
+      statusEl.className = "mt-2 text-sm text-blue-600";
     }
   }
 
@@ -581,29 +586,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // DASHBOARD & PROFIL
   // =====================================
   function updateDashboard() {
-    const noProfileWarning = document.getElementById('no-profile-warning');
-    const dashboardContent = document.getElementById('dashboard-content');
+    const noProfileWarning = document.getElementById("no-profile-warning");
+    const dashboardContent = document.getElementById("dashboard-content");
 
     if (!noProfileWarning || !dashboardContent) return;
 
     const hasProfile = userProfile.targetCalories !== null;
 
     if (hasProfile) {
-      noProfileWarning.style.display = 'none';
-      dashboardContent.style.display = 'grid';
+      noProfileWarning.style.display = "none";
+      dashboardContent.style.display = "grid";
 
-      const profileWeightEl = document.getElementById('profile-weight');
-      const profileHeightEl = document.getElementById('profile-height');
-      const profileBmiEl = document.getElementById('profile-bmi');
-      const profileTargetEl = document.getElementById('profile-target');
-      const profileGoalEl = document.getElementById('profile-goal');
+      const profileWeightEl = document.getElementById("profile-weight");
+      const profileHeightEl = document.getElementById("profile-height");
+      const profileBmiEl = document.getElementById("profile-bmi");
+      const profileTargetEl = document.getElementById("profile-target");
+      const profileGoalEl = document.getElementById("profile-goal");
 
       if (profileWeightEl)
         profileWeightEl.textContent = `${userProfile.weight} kg`;
       if (profileHeightEl)
         profileHeightEl.textContent = `${userProfile.height} cm`;
-      if (profileBmiEl)
-        profileBmiEl.textContent = userProfile.bmi.toFixed(1);
+      if (profileBmiEl) profileBmiEl.textContent = userProfile.bmi.toFixed(1);
       if (profileTargetEl)
         profileTargetEl.textContent = `${userProfile.targetCalories} kkal/hari`;
       if (profileGoalEl) profileGoalEl.textContent = userProfile.goalText;
@@ -613,57 +617,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       updateCalorieChart();
     } else {
-      noProfileWarning.style.display = 'block';
-      dashboardContent.style.display = 'none';
+      noProfileWarning.style.display = "block";
+      dashboardContent.style.display = "none";
     }
   }
 
   // =====================================
   // EDIT PROFIL (MODAL)
   // =====================================
-  const editProfileBtn = document.getElementById('edit-profile-btn');
-  const editProfileModal = document.getElementById('edit-profile-modal');
-  const closeEditBtn = document.getElementById('close-edit');
-  const editProfileForm = document.getElementById('edit-profile-form');
+  const editProfileBtn = document.getElementById("edit-profile-btn");
+  const editProfileModal = document.getElementById("edit-profile-modal");
+  const closeEditBtn = document.getElementById("close-edit");
+  const editProfileForm = document.getElementById("edit-profile-form");
 
   if (editProfileBtn && editProfileModal && editProfileForm && closeEditBtn) {
-    editProfileBtn.addEventListener('click', () => {
+    editProfileBtn.addEventListener("click", () => {
       if (userProfile.targetCalories) {
-        document.getElementById('edit-weight').value = userProfile.weight;
-        document.getElementById('edit-height').value = userProfile.height;
-        document.getElementById('edit-calorie').value =
+        document.getElementById("edit-weight").value = userProfile.weight;
+        document.getElementById("edit-height").value = userProfile.height;
+        document.getElementById("edit-calorie").value =
           userProfile.targetCalories;
-        document.getElementById('edit-goal').value = userProfile.goal;
-        editProfileModal.classList.remove('hidden');
+        document.getElementById("edit-goal").value = userProfile.goal;
+        editProfileModal.classList.remove("hidden");
       } else {
-        alert('Profil belum ada. Silakan hitung dan simpan profil terlebih dahulu.');
+        alert(
+          "Profil belum ada. Silakan hitung dan simpan profil terlebih dahulu."
+        );
       }
     });
 
-    closeEditBtn.addEventListener('click', () => {
-      editProfileModal.classList.add('hidden');
+    closeEditBtn.addEventListener("click", () => {
+      editProfileModal.classList.add("hidden");
     });
 
-    editProfileModal.addEventListener('click', (e) => {
+    editProfileModal.addEventListener("click", (e) => {
       if (e.target === editProfileModal) {
-        editProfileModal.classList.add('hidden');
+        editProfileModal.classList.add("hidden");
       }
     });
 
-    editProfileForm.addEventListener('submit', (e) => {
+    editProfileForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const weight = parseFloat(
-        document.getElementById('edit-weight').value
-      );
-      const height = parseFloat(
-        document.getElementById('edit-height').value
-      );
+      const weight = parseFloat(document.getElementById("edit-weight").value);
+      const height = parseFloat(document.getElementById("edit-height").value);
       const targetCalories = parseInt(
-        document.getElementById('edit-calorie').value,
+        document.getElementById("edit-calorie").value,
         10
       );
-      const goal = document.getElementById('edit-goal').value;
+      const goal = document.getElementById("edit-goal").value;
 
       if (weight > 0 && height > 0 && targetCalories > 0) {
         const heightInMeters = height / 100;
@@ -671,14 +673,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let goalText;
         switch (goal) {
-          case 'lose':
-            goalText = 'Menurunkan berat badan';
+          case "lose":
+            goalText = "Menurunkan berat badan";
             break;
-          case 'gain':
-            goalText = 'Menaikkan berat badan';
+          case "gain":
+            goalText = "Menaikkan berat badan";
             break;
           default:
-            goalText = 'Menjaga berat badan';
+            goalText = "Menjaga berat badan";
         }
 
         userProfile = {
@@ -691,10 +693,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         updateDashboard();
-        editProfileModal.classList.add('hidden');
-        alert('Profil berhasil diperbarui!');
+        editProfileModal.classList.add("hidden");
+        alert("Profil berhasil diperbarui!");
       } else {
-        alert('Mohon isi semua data dengan angka yang valid.');
+        alert("Mohon isi semua data dengan angka yang valid.");
       }
     });
   }
